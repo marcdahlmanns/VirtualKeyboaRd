@@ -1,0 +1,20 @@
+[package]
+name = "virtual-keyboard"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "A virtual keyboard application written in Rust using GTK"
+license = "MIT"
+
+[dependencies]
+gtk = { version = "0.7", package = "gtk4", features = ["v4_6"] }
+glib = "0.18"
+gdk = { version = "0.7", package = "gdk4" }
+gio = "0.18"
+anyhow = "1.0"
+thiserror = "1.0"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1 
