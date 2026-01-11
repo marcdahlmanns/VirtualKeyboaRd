@@ -65,16 +65,15 @@ impl InputSimulator {
         {
             match self.os_type {
                 OSType::Linux => {
-                    let output = Command::new("xdotool")
-                        .arg("key")
+                    let output = Command::new("wtype")
                         .arg(key.to_string())
                         .output()
-                        .map_err(|e| InputError::KeyPressError(format!("xdotool error: {}", e)))?;
+                        .map_err(|e| InputError::KeyPressError(format!("wtype error: {}", e)))?;
 
                     if !output.status.success() {
                         let stderr = String::from_utf8_lossy(&output.stderr);
                         return Err(InputError::KeyPressError(format!(
-                            "xdotool failed: {}",
+                            "wtype failed: {}",
                             stderr
                         )));
                     }

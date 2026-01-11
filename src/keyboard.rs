@@ -34,6 +34,8 @@ impl VirtualKeyboard {
                     .label(&key.to_string())
                     .width_request(40)
                     .height_request(40)
+                    .can_focus(false)
+                    .focus_on_click(false)
                     .build();
 
                 let key_char = key;
@@ -53,6 +55,8 @@ impl VirtualKeyboard {
             .label("Space")
             .width_request(200)
             .height_request(40)
+            .can_focus(false)
+            .focus_on_click(false)
             .build();
 
         let space_input_simulator = input_simulator.clone();
